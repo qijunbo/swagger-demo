@@ -1,0 +1,77 @@
+<div ng-include src="'partials/menu.html'"></div>
+<!-- Customers List -->
+
+<div class="container" id="customers_container" ng-controller="costomerCtl">
+	<div class="navbar-header" >
+		<a class="navbar-brand" onclick="location.reload();" title="refresh">Customer<span class="glyphicon glyphicon-refresh"></span>
+		</a>
+	</div>
+
+	<ul class="nav navbar-nav navbar-right">
+		<li><a  title="search charge point"><span
+				class="glyphicon glyphicon-search"></span></a></li>
+		<li><a data-toggle="modal" data-target="#dialog_edit" data-ng-click="onNewButtonClick()" title="new charge point"><span
+				class="glyphicon glyphicon-plus"></span></a></li>
+
+	</ul>
+	<span class="navbar-form navbar-right"> <input type="text"
+		class="form-control" data-ng-model="searchKey"
+		placeholder="Search...">
+	</span>
+
+	<table class="table table-responsive table-hover">
+		<thead>
+			<tr>
+				<th class="col-sm-1">ID</th>
+				<th class="col-sm-1">First Name</th>
+				<th class="col-sm-1">Last Name</th>
+				<th class="col-sm-2">Email</th>
+				<th class="col-sm-2">Create Date</th>
+			 
+				<th class="col-sm-1">&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr
+				data-ng-repeat="o in customers | filter: searchKey | orderBy : 'id'"
+				id="tr{{o.id}}">
+				<td data-toggle="modal" data-target="#dialog_edit"
+					data-ng-click="onEditClick(o)" class="text-center">{{o.id}}</td>
+				<td data-toggle="modal" data-target="#dialog_edit"
+					data-ng-click="onEditClick(o)">{{o.firstName}}</td>
+				<td data-toggle="modal" data-target="#dialog_edit"
+					data-ng-click="onEditClick(o)" class="text-center">{{o.lastName}}</td>
+				<td data-toggle="modal" data-target="#dialog_edit"
+					data-ng-click="onEditClick(o)"><a title="contact me: {{o.email}}">{{o.email}}</a></td>
+				<td>{{o.birthday | date:'yyyy/MM/dd HH:mm:ss'}}</td>
+				 
+				<td class="col-sm-2 text-center"> 
+					<div class="btn-group">
+						<span class="glyphicon glyphicon-th-list dropdown-toggle "
+							data-toggle="dropdown"><span class="caret"></span> </span>
+						<ul class="dropdown-menu" role="menu">
+							<li class="divider"></li>
+							<li><a data-toggle="modal" data-target="#dialog_edit"
+								data-ng-click="onEditClick(o)" title="edit"><span
+									class="glyphicon glyphicon-pencil">&nbsp;Edit</span></a></li>
+							<li><a data-ng-click="remove(o)"><span
+									class="glyphicon glyphicon-remove">&nbsp;</span>Remove</a></li>
+							<li class="divider"></li>
+							 
+						</ul>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- invisable partials -->
+	<div ng-include src="'partials/edit.html'"></div>
+
+</div>
+
+
+<!-- invisable partials -->
+<div ng-include src="'partials/about.html'"></div>
+
+<!-- footer -->
+<div ng-include src="'partials/footer.html'"></div>

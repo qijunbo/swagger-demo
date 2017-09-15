@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../js/libs/angular.min.js"></script>
+<script src="../js/libs/angular-route.min.js"></script>
+<script src="../js/libs/angular-resource.min.js"></script>
+<script src="../js/libs/angular-cookies.min.js"></script>
+<script src="resource.js"></script>
+
+<body>
+	<div ng-app="dream" ng-controller="costomerCtl">
+
+		<p>
+			Search: <input type="text" class="form-control"
+				data-ng-model="keyOfchargePoint" placeholder="Search...">
+		</p>
+
+		<table border="1px">
+			<tr>
+				<td>{{ customer.id }}</td>
+				<td>{{ customer.firstName }}</td>
+				<td>{{ customer.lastName }}</td>
+			</tr>
+
+			<tr
+				data-ng-repeat="o in customers | filter: keyOfchargePoint | orderBy : 'id'"
+				id="tr{{o.id}}">
+				<td>{{ o.id }}</td>
+				<td>{{ o.firstName }}</td>
+				<td>{{ o.lastName }}</td>
+				<td><button type="button" id="{{o.id}}" ng-click="remove(o.id)">删除（{{o.id}}
+						）</button></td>
+			</tr>
+
+		</table>
+
+		<div>
+			<input class="form-control" type="text" data-ng-model="customer.id">
+			<br /> <input class="form-control" type="text"
+				data-ng-model="customer.firstName"> <br /> <input
+				class="form-control" type="text" data-ng-model="customer.lastName">
+			<br />
+
+			<button type="button" ng-click="update(customer.id)">修改</button>
+			<button type="button" ng-click="save( )">添加</button>
+		</div>
+
+
+	</div>
+</body>
+
+
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="model.js"></script>
+<body>
+
+	<div ng-app="dream">
+
+		<p>Input something in the input box:</p>
+
+		<table border="1" style="border-color: {{mycol">
+			<tr>
+				<td>
+					<p>
+						Name: <input type="text" data-ng-model="name" />
+					</p>
+					<p>
+						Age: <input type="text" data-ng-model="age" />
+					</p>
+					<p>
+						Colour: <input type="text" data-ng-model="mycol" />
+					</p>
+
+				</td>
+				<td>
+
+					<p data-ng-bind="name"></p>
+					<p>hello {{name }}</p>
+
+					<p>{{age + 1 }}</p>
+					<p data-ng-bind="age" /> <input style="background-color: {{mycol"
+					ng-model="mycol" value="{{mycol}}" />
+				</td>
+				<td>
+					<p>My first expression: {{ 5 + 5 }}</p>
+					<p>
+						My first expression age + 5 : {{ 5 + age }}<br /> 是不是很失望， age + 5
+						不是数字相加，而是字符串相加哦。
+					</p>
+				</td>
+			</tr>
+			<tr ng-controller="myCtrl">
+				<td>Hello:</td>
+				<td>{{firstName}} ,</td>
+				<td>{{lastName}}</td>
+			</tr>
+			<tr>
+				<td>ng-click:</td>
+				<td><button ng-click="count = count + 1" ng-init="count=0">OK</button>
+				</td>
+				<td>{{count}}</td>
+			</tr>
+
+
+			<tr ng-controller="clickController">
+				<td>Contoller 放的位置确定了它的作用域。 ng-click:</td>
+				<td>
+					<div>
+						<p>Click the button to run a function:</p>
+						<button ng-click="myFunc()">OK</button>
+						<p>The button has been clicked {{count}} times.</p>
+					</div>
+				</td>
+				<td>{{count}}</td>
+			</tr>
+		</table>
+
+	</div>
+
+</body>
+</html>

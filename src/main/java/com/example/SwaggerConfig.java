@@ -9,15 +9,6 @@ import com.mangofactory.swagger.models.dto.ApiInfo;
 import com.mangofactory.swagger.plugin.EnableSwagger;
 import com.mangofactory.swagger.plugin.SwaggerSpringMvcPlugin;
 
-/**
- * 项目名称：apidoc
- *
- * @description:
- * @author Wind-spg
- * @create_time：2015年2月10日 上午10:27:51
- * @version V1.0.0
- *
- */
 @Configuration
 @EnableSwagger
 // Loads the spring beans required by the framework

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<html lang="zh_CN">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+	<div ng-app="">
+
+		<p>Input something in the input box:</p>
+
+		<table border="1" style="border-color: {{mycol">
+			<tr>
+				<td>
+					<p>
+						Name: <input type="text" data-ng-model="name" />
+					</p>
+					<p>
+						Age: <input type="text" data-ng-model="age" />
+					</p>
+					<p>
+						Colour: <input type="text" data-ng-model="mycol" />
+					</p>
+
+				</td>
+				<td>
+
+					<p data-ng-bind="name"></p>
+					<p>hello {{name }}</p>
+
+					<p>{{age + 1 }}</p>
+					<p data-ng-bind="age" /> <input style="background-color: {{mycol"
+					ng-model="mycol" value="{{mycol}}" />
+				</td>
+				<td>
+					<p>My first expression: {{ 5 + 5 }}</p>
+					<p>
+						My first expression age + 5 : {{ 5 + age }}<br /> 是不是很失望， age + 5
+						不是数字相加，而是字符串相加哦。
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td />
+				<td />
+				<td />
+			</tr>
+
+		</table>
+
+	</div>
+
+</body>
+</html>
