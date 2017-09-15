@@ -1,2 +1,30 @@
-# swagger-demo
-A way to generate  REST API document.
+Swagger Demo
+==
+
+What is this repository for?
+--
+
+* Quick summary
+* Version
+* [REST API docs](http://118.190.153.23/cloud/swagger-ui.html)
+* [APP Entrance](http://118.190.153.23/cloud/)
+
+### How do I get set up? ###
+--
+* Summary of set up
+* Configuration
+* Dependencies
+* Database configuration
+* How to run tests
+* Deployment instructions
+
+### Contribution guidelines ###
+--
+* Writing tests
+* Code review
+* Other guidelines
+
+### Who do I talk to? ###
+--
+* Repo owner or admin
+* Other community or team contact
