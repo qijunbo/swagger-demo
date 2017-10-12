@@ -30,23 +30,24 @@ The url is always end with ``` api-docs ```,  adjust the application context if 
       } else {
         url = "/api-docs";
       }
-```	  
+      
+```      
 
 * (Optional)Customize the output. you can ignore this step if you don't want to waste time on this.  That is to say, if you don't want to use ``` @ApiOperation(value = "Add Customer", httpMethod = "POST", response = Customer.class, notes = "Add Customer") ```,  swagger-ui can also works well.
 
 ```
-	@RequestMapping(method = POST)
-	@ApiOperation(value = "Add Customer", httpMethod = "POST", 
-	       response = Customer.class, notes = "Add Customer")
-	public @ResponseBody Customer create(
-				@ApiParam(required = true, name = "requestbody", value = "Customer data in json format.")
-				@RequestBody 
-				Customer customer) {
-		customer = repository.save(customer);
-		return customer;
-	}
+    @RequestMapping(method = POST)
+    @ApiOperation(value = "Add Customer", httpMethod = "POST", 
+           response = Customer.class, notes = "Add Customer")
+    public @ResponseBody Customer create(
+                @ApiParam(required = true, name = "requestbody", value = "Customer data in json format.")
+                @RequestBody 
+                Customer customer) {
+        customer = repository.save(customer);
+        return customer;
+    }
 
-```	
+```    
 
 * Build this project with gradle and run. 
 
