@@ -17,6 +17,10 @@ jar {
     version =  '0.1.0'
 }
 
+springBoot {
+    mainClass = 'com.example.Application'
+    executable = true
+}
 
 repositories {
     maven { url 'http://maven.aliyun.com/nexus/content/repositories/central/' }
