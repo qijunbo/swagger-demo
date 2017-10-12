@@ -23,15 +23,15 @@ In this demo,  I use [swagger-ui 2.0] (https://github.com/swagger-api/swagger-ui
 Then edit the index.html, and change the api url into your own url.
 The url is always end with ``` api-docs ```,  adjust the application context if needed.
 
-````
+```
       var url = window.location.search.match(/url=([^&]+)/);
       if (url && url.length > 1) {
         url = decodeURIComponent(url[1]);
       } else {
         url = "/api-docs";
-      }
-      
+      } 
 ```      
+
 
 * (Optional)Customize the output. you can ignore this step if you don't want to waste time on this.  That is to say, if you don't want to use ``` @ApiOperation(value = "Add Customer", httpMethod = "POST", response = Customer.class, notes = "Add Customer") ```,  swagger-ui can also works well.
 
