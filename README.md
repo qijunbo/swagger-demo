@@ -10,7 +10,9 @@ Quick Start Swagger
 How do I get set up? 
 --
 
-* import the required jar package in [build.gradle](https://github.com/qijunbo/swagger-demo/blob/master/build.gradle),
+* import the required jar package in [build.gradle](https://github.com/qijunbo/swagger-demo/blob/master/build.gradle), 
+if you use spring-boot, things can be very easy.  this package is the only thing you need.
+but if not,  you can refer to the reference link at the bottom of this page.
 ```
 compile("com.mangofactory:swagger-springmvc:1.0.2")
 ```
@@ -72,3 +74,5 @@ Reference
 本文主要参考下面的链接, 但是由于这些参考资料用的版本比较老, 本文做了调整.
 
 http://blog.csdn.net/wangnan9279/article/details/44541665
+
+http://blog.csdn.net/linlzk/article/details/50728264
