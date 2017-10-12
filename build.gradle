@@ -37,7 +37,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("com.h2database:h2")
     
-    compile("com.mangofactory:swagger-springmvc:0.9.5")
+    //compile("com.mangofactory:swagger-springmvc:0.9.5")
+    compile("com.mangofactory:swagger-springmvc:1.0.2")
     
     //compile("com.fasterxml.jackson.core:jackson-annotations:2.8.8}")
     //compile("com.fasterxml.jackson.core:jackson-databind:2.8.8")
