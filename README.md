@@ -3,9 +3,7 @@ Swagger Demo
 
 Quick Start Swagger 
 --
-* [APP Entrance](http://localhost)
-* [REST API docs](http://localhost/api/index.html)
-
+Todo:  Add Spring security
 
 How do I get set up? 
 --
