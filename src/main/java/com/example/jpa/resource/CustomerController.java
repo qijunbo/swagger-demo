@@ -18,7 +18,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
 @Controller
-@RequestMapping("/customer")
+@RequestMapping("/api/customer")
 public class CustomerController {
 
 	@Autowired
