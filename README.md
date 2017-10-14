@@ -1,9 +1,5 @@
-Swagger Demo
-==
-
 Quick Start Swagger 
---
-Todo:  Add Spring security
+==
 
 How do I get set up? 
 --
