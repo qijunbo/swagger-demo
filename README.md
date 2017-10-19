@@ -1,6 +1,12 @@
 Quick Start Swagger 
 ==
 
+实现 Swagger UI 和项目的集成有两种方法. 
+
+- swagger-springmvc(本方法)
+- [springfox-swagger2](https://github.com/qijunbo/swagger-demo/tree/swagger2)
+
+
 How do I get set up? 
 --
 
