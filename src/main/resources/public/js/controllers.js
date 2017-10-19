@@ -6,7 +6,7 @@ dreamApp.controller('costomerCtl', function($scope, $resource) {
 
 	// var CustomerService = $resource( appContext + 'customer/:id' );
 
-	var CustomerService = $resource(appContext + 'customer/:id', {
+	var CustomerService = $resource(appContext + 'api/customer/:id', {
 		id : '@_id'
 	}, {
 		update : {
