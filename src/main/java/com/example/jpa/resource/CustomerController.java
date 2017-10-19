@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.jpa.repository.Customer;
 import com.example.jpa.repository.CustomerRepository;
-import com.wordnik.swagger.annotations.ApiOperation;
-import com.wordnik.swagger.annotations.ApiParam;
+
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 @Controller
 @RequestMapping("/api/customer")

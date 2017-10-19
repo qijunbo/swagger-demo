@@ -1,6 +1,11 @@
 Quick Start Swagger 
 ==
 
+实现 Swagger UI 和项目的集成有两种方法. 
+
+- [swagger-springmvc](https://github.com/qijunbo/swagger-demo)
+- springfox-swagger2 (本方法)
+
 How do I get set up? 
 --
 
@@ -8,26 +13,29 @@ How do I get set up?
 if you use spring-boot, things can be very easy.  this package is the only thing you need.
 but if not,  you can refer to the reference link at the bottom of this page.
 ```
-compile("com.mangofactory:swagger-springmvc:1.0.2")
+//-- Swagger2-config    
+compile("io.springfox:springfox-swagger2:2.7.0")
+compile("io.springfox:springfox-swagger-ui:2.7.0")
+//-- Swagger2-config-end
 ```
-* Copy the [SwaggerConfig.java](https://github.com/qijunbo/swagger-demo/blob/master/src/main/java/com/example/SwaggerConfig.java) in your project.
+* Copy the [SwaggerConfig.java](https://github.com/qijunbo/swagger-demo/blob/master/src/main/java/com/example/SwaggerConfig.java) in your project. 
 
-
-* integrate with  [Swagger UI] (https://github.com/swagger-api/swagger-ui)
-In this demo,  I use [swagger-ui 2.0] (https://github.com/swagger-api/swagger-ui/tree/2.x), Copy the folder [dist](https://github.com/swagger-api/swagger-ui/tree/2.x/dist) in your project.
-
-Then edit the index.html, and change the api url into your own url.
-The url is always end with ``` api-docs ```,  adjust the application context if needed.
+Customize the package path like this:
+   
+```
+@Bean
+public Docket api() {
+	//@formatter:off
+	return new Docket(DocumentationType.SWAGGER_2)
+			.select()
+			.apis(RequestHandlerSelectors.basePackage("com.example.jpa.resource"))
+			//.paths(PathSelectors.ant("/api/*"))
+			.paths(PathSelectors.any())
+			.build().apiInfo(apiInfo());
+	//@formatter:on
+}
 
 ```
-      var url = window.location.search.match(/url=([^&]+)/);
-      if (url && url.length > 1) {
-        url = decodeURIComponent(url[1]);
-      } else {
-        url = "/api-docs";
-      } 
-```      
-
 
 * (Optional)Customize the output. you can ignore this step if you don't want to waste time on this.  That is to say, if you don't want to use ``` @ApiOperation(value = "Add Customer", httpMethod = "POST", response = Customer.class, notes = "Add Customer") ```,  swagger-ui can also works well.
 
@@ -51,12 +59,15 @@ The url is always end with ``` api-docs ```,  adjust the application context if 
 gradlew  eclipse clean  build
 java -jar  build/libs/customer.jar
 ```
+* Verify
+
+ http://localhost/v2/api-docs
 
 * Done
 
- [http://localhost](http://localhost) 
+ http://localhost
  
- [http://localhost/api/index.html](http://localhost/api/index.html)
+ http://localhost/swagger-ui.html
 
 
 Who do I talk to? 
@@ -67,6 +78,7 @@ Reference
 --
 本文主要参考下面的链接, 但是由于这些参考资料用的版本比较老, 本文做了调整.
 
-http://blog.csdn.net/wangnan9279/article/details/44541665
+http://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
 
-http://blog.csdn.net/linlzk/article/details/50728264
+http://blog.csdn.net/zhaky/article/details/64906686
+
