@@ -19,8 +19,8 @@ compile("com.mangofactory:swagger-springmvc:1.0.2")
 * Copy the [SwaggerConfig.java](https://github.com/qijunbo/swagger-demo/blob/master/src/main/java/com/example/SwaggerConfig.java) in your project.
 
 
-* integrate with  [Swagger UI] (https://github.com/swagger-api/swagger-ui)
-In this demo,  I use [swagger-ui 2.0] (https://github.com/swagger-api/swagger-ui/tree/2.x), Copy the folder [dist](https://github.com/swagger-api/swagger-ui/tree/2.x/dist) in your project.
+* integrate with  [Swagger UI](https://github.com/swagger-api/swagger-ui)
+In this demo,  I use [swagger-ui 2.0](https://github.com/swagger-api/swagger-ui/tree/2.x), Copy the folder [dist](https://github.com/swagger-api/swagger-ui/tree/2.x/dist) in your project.
 
 Then edit the index.html, and change the api url into your own url.
 The url is always end with ``` api-docs ```,  adjust the application context if needed.
@@ -57,6 +57,11 @@ The url is always end with ``` api-docs ```,  adjust the application context if 
 gradlew  eclipse clean  build
 java -jar  build/libs/customer.jar
 ```
+
+* Verify
+  
+ You must be able to see the swagger json output when you click this link. 
+ http://localhost/api-docs
 
 * Done
 
