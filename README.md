@@ -4,7 +4,7 @@ Quick Start Swagger
 实现 Swagger UI 和项目的集成有两种方法. 
 
 - [swagger-springmvc](https://github.com/qijunbo/swagger-demo)
-- springfox-swagger2 (本方法)
+- springfox-swagger2 (本方法, Recommended)
 
 How do I get set up? 
 --
@@ -76,6 +76,16 @@ junboqi@foxmail.com
 
 Reference
 --
+官方文档和示例:
+
+Springfox官网:  https://github.com/springfox
+
+Springfox Demo: https://github.com/springfox/springfox-demos
+
+Swagger UI 容器: https://github.com/swagger-api/swagger-ui
+
+
+
 本文主要参考下面的链接, 但是由于这些参考资料用的版本比较老, 本文做了调整.
 
 http://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
