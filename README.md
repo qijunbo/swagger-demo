@@ -63,7 +63,7 @@ java -jar  build/libs/customer.jar
 
  http://localhost/v2/api-docs
  
-![Page](images/guid.png)
+![Page](images/guid.gif)
  
 
 * Done
