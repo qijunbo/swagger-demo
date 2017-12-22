@@ -3,7 +3,6 @@ package com.example.jpa.resource;
 import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
-import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,20 +30,6 @@ public class CustomerController {
 			@ApiParam(required = true, name = "requestbody", value = "Customer data in json format.") @RequestBody Customer customer) {
 		customer = repository.save(customer);
 		return customer;
-	}
-
-	@RequestMapping(value = "/{id}", method = PUT)
-	public @ResponseBody boolean update(@PathVariable long id, @RequestBody Customer customer) {
-
-		if (id != customer.getId()) {
-			return false;
-		}
-
-		if (repository.exists(customer.getId())) {
-			customer = repository.save(customer);
-			return true;
-		}
-		return false;
 	}
 
 	/**

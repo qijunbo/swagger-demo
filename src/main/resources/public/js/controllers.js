@@ -4,8 +4,6 @@
 
 dreamApp.controller('costomerCtl', function($scope, $resource) {
 
-	// var CustomerService = $resource( appContext + 'customer/:id' );
-
 	var CustomerService = $resource(appContext + 'api/customer/:id', {
 		id : '@_id'
 	}, {
@@ -14,43 +12,43 @@ dreamApp.controller('costomerCtl', function($scope, $resource) {
 		}
 	});
 
-	var customer = CustomerService.get({
-		id : 1
-	}, function() {
-		$scope.customer = customer;
-		console.log(customer);
-	});
 
 	var customers = CustomerService.query(function() {
 		$scope.customers = customers;
+		console.log("Initial load: ")
 		console.log(customers);
 	});
 
-	$scope.save = function() {
-		$scope.customer.id = null;
-		console.log(JSON.stringify($scope.customer));
+	$scope.get = function(_id) {
+		CustomerService.get({
+			id : _id
+		}, function() {
+			$scope.customer = customer;
+			console.log(customer);
+		});
+	};
+	
+	$scope.reload = function() { 
+		var resp =  CustomerService.query(function() {
+			console.log("Reload:" + JSON.stringify(resp));
+			$scope.customers = resp;
+		});
 
+	};
+	
+	$scope.save = function() {
 		CustomerService.save({}, $scope.customer, function success(response) {
 			console.log("Customer saved:" + JSON.stringify(response));
-			$scope.customers.push(response);		
+			if ($scope.editflag == "new") {
+				$scope.customers.push(response);	
+				$scope.customer = null;
+			}
 		}, function error(errorResponse) {
 			alert("Connot connect to server.");
 			console.log("Error:" + JSON.stringify(errorResponse));
 		});
 	};
 
-	$scope.update = function(customerid) {
-		console.log(JSON.stringify(customerid));
-		CustomerService.update({
-			id : customerid
-		}, $scope.customer, function success(response) {
-			console.log("Customer updated:" + JSON.stringify(customerid));
-
-		}, function error(errorResponse) {
-			alert("Connot connect to server.");
-			console.log("Error:" + JSON.stringify(errorResponse));
-		});
-	};
 
 	$scope.remove = function(customer) {
 		var customerid = customer.id;
@@ -71,12 +69,15 @@ dreamApp.controller('costomerCtl', function($scope, $resource) {
 
 	$scope.onEditClick = function(customer) {
 		console.log("Editting customer:" + JSON.stringify(customer));
+		$scope.editflag = "edit";
 		$scope.customer = customer;
-	}
+	};
 	
 	$scope.onNewClick = function( ) {
-		$scope.customer = {"id": $scope.customers.length + 1, "birthday":new Date()};
+		$scope.customer = {"birthday":new Date()};
+		$scope.editflag = "new";
 		console.log("Adding customer:" + JSON.stringify($scope.customer));
-	}
+	};
+	
 
 });
