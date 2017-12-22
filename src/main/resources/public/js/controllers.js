@@ -74,7 +74,7 @@ dreamApp.controller('costomerCtl', function($scope, $resource) {
 		$scope.customer = customer;
 	}
 	
-	$scope.onNewButtonClick = function( ) {
+	$scope.onNewClick = function( ) {
 		$scope.customer = {"id": $scope.customers.length + 1, "birthday":new Date()};
 		console.log("Adding customer:" + JSON.stringify($scope.customer));
 	}
