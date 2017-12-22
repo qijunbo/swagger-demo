@@ -19,6 +19,8 @@ dreamApp.controller('costomerCtl', function($scope, $resource) {
 		console.log(customers);
 	});
 
+	
+	//无用的方法
 	$scope.get = function(_id) {
 		CustomerService.get({
 			id : _id
@@ -29,11 +31,12 @@ dreamApp.controller('costomerCtl', function($scope, $resource) {
 	};
 	
 	$scope.reload = function() { 
+		return ;
+		// 这不是个好主意
 		var resp =  CustomerService.query(function() {
 			console.log("Reload:" + JSON.stringify(resp));
 			$scope.customers = resp;
 		});
-
 	};
 	
 	$scope.save = function() {
