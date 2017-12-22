@@ -62,6 +62,9 @@ java -jar  build/libs/customer.jar
 * Verify
 
  http://localhost/v2/api-docs
+ 
+![Page](images/guid.png)
+ 
 
 * Done
 
