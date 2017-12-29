@@ -21,7 +21,8 @@ services:
      restart: always
      environment:
        ACTIVE_PROFILE: prod
-       APP_DB_HOST: db:3306
+       APP_DB_HOST: db
+       APP_DB_PORT: 3306
        APP_DB_USER: swaggerdemo
        APP_DB_PASSWORD: swaggerdemo
        APP_DATABASE: swaggerdemo
