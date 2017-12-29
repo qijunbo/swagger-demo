@@ -1,7 +1,4 @@
 #!/bin/sh
-
-set -e
-
 name=$1
 
 if [ -z "${name}" ]; then 
@@ -13,6 +10,7 @@ docker stop swagger_demo
 docker container prune -f
 
 set -e
+
 mkdir -p  /opt/mysql/${name}/data
 docker run --name ${name} \
     -v /opt/mysql/${name}/data:/var/lib/mysql  \
