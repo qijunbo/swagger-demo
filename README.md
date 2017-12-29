@@ -77,6 +77,12 @@ Who do I talk to?
 --
 junboqi@foxmail.com
 
+知识拓展
+--
+
+本程序还可以以Docker镜像的形式发布, 具体可参考[README](docker/README.md)
+
+
 Reference
 --
 本文主要参考下面的链接, 但是由于这些参考资料用的版本比较老, 本文做了调整.
