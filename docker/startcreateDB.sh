@@ -19,13 +19,10 @@ docker run --name ${name} \
     -d -P mysql \
     --character-set-server=utf8 --collation-server=utf8_general_ci 
 
-port=`docker inspect --format='{{(index (index .NetworkSettings.Ports "3306/tcp") 0).HostPort}}' ${name}`
-
 docker container run --name swagger_demo \
                      --link ${name}:dbserver \
                      --env ACTIVE_PROFILE=prod \
                      --env APP_DB_HOST=dbserver \
-                     --env APP_DB_PORT=${port} \
                      --env APP_DB_USER=root \
                      --env APP_DB_PASSWORD=qijunbo \
                      --env APP_DATABASE=swaggerdemo \

@@ -47,6 +47,12 @@ docker container run --name swagger_demo  --env ACTIVE_PROFILE=dev -d -p 32794:8
 
 [Dockerfile](Dockerfile) 继承自  openjdk:8-jre-alpine, 这个父镜像很小, 不错, 但是里面的shell只有sh, 没有bash, 所以[docker-entrypoint.sh](docker-entrypoint.sh) 第一行要用/bin/sh, 否则启动docker镜像的时候, 会报 ``` /bin/sh: docker-entrypoint.sh :not found  ``` 这个错误, 不是 docker-entrypoint.sh 找不到, 而是 /bin/bash 找不到.
 
+- mysql 容器内部的端口是3306
+
+当你用 ``` --link ${name}:dbserver  ``` 链接某个mysql容器的时候, 这时候你就拥有了访问它内部ip和端口的权限, 那么它内部的端口肯定就是 ** 3306 ** 了,  下面这个参数当且仅当你使用一个非容器的mysql数据库且它的端口不是3306的时候才能排上用场,
+```
+ --env APP_DB_PORT=${port} \
+```
 
 参考文献
 ==
