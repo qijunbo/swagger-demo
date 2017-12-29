@@ -14,7 +14,7 @@ function safesed {
 safesed ACTIVE_PROFILE ${ACTIVE_PROFILE:-dev} /root/webapp/config/application.yml
 safesed APP_DB_HOST ${APP_DB_HOST:-db} /root/webapp/config/application-prod.yml
 safesed APP_DB_PORT ${APP_DB_PORT:-3306} /root/webapp/config/application-prod.yml
-safesed APP_DB_USER ${APP_DB_USER:-qijunbo}/root/webapp/config/application-prod.yml
+safesed APP_DB_USER ${APP_DB_USER:-qijunbo} /root/webapp/config/application-prod.yml
 safesed APP_DB_PASSWORD ${APP_DB_PASSWORD:-qijunbo} /root/webapp/config/application-prod.yml
 safesed APP_DATABASE ${APP_DATABASE:-swaggerdemo} /root/webapp/config/application-prod.yml
 
