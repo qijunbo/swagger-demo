@@ -8,16 +8,17 @@ if [ -z "${name}" ]; then
    echo "Usage: $0 name"
    exit -1 ;
 fi
-
-mkdir -p  /opt/mysql/${name}/data
-
 docker stop ${name}
-docker container prune -f 
+docker stop swagger_demo
+docker container prune -f
+
+set -e
+mkdir -p  /opt/mysql/${name}/data
 docker run --name ${name} \
     -v /opt/mysql/${name}/data:/var/lib/mysql  \
     -e MYSQL_ROOT_PASSWORD=qijunbo  \
 	-e MYSQL_DATABASE=swaggerdemo \
-    -d -p 3306:3306 mysql \
+    -d -P mysql \
     --character-set-server=utf8 --collation-server=utf8_general_ci 
 
 port=`docker inspect --format='{{(index (index .NetworkSettings.Ports "3306/tcp") 0).HostPort}}' ${name}`
