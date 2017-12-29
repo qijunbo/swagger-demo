@@ -11,6 +11,6 @@ function safesed {
   sed -i "s/$(echo $1 | sed -e 's/\([[\/.*]\|\]\)/\\&/g')/$(echo $2 | sed -e 's/[\/&]/\\&/g')/g" $3
 }
 
-safesed replacedev ${ACTIVE_PROFILE:-dev} application.yml
+safesed replacedev ${ACTIVE_PROFILE:-dev} /root/webapp/config/application.yml
 
 java -jar demo.jar
