@@ -11,6 +11,10 @@ function safesed {
   sed -i "s/$(echo $1 | sed -e 's/\([[\/.*]\|\]\)/\\&/g')/$(echo $2 | sed -e 's/[\/&]/\\&/g')/g" $3
 }
 
-safesed replacedev ${ACTIVE_PROFILE:-dev} /root/webapp/config/application.yml
+safesed ACTIVE_PROFILE ${ACTIVE_PROFILE:-dev} /root/webapp/config/application.yml
+safesed APP_DB_HOST ${APP_DB_HOST:-db:3306} /root/webapp/config/application-prod.yml
+safesed APP_DB_USER ${APP_DB_USER:-qijunbo}/root/webapp/config/application-prod.yml
+safesed APP_DB_PASSWORD ${APP_DB_PASSWORD:-qijunbo} /root/webapp/config/application-prod.yml
+safesed APP_DATABASE ${APP_DATABASE:-swaggerdemo} /root/webapp/config/application-prod.yml
 
 java -jar demo.jar

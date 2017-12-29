@@ -4,5 +4,5 @@ server:
         timeout: 1800
 spring:
   profiles:
-    active: replacedev
+    active: ACTIVE_PROFILE
      
