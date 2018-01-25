@@ -42,13 +42,22 @@ docker container run --name swagger_demo  --env ACTIVE_PROFILE=dev -d -p 32794:8
 ```
 
 
-执行完毕后访问  http://localhost:32794 即可
+执行完毕后访问  http://localhost:32794/ 即可 (注意最后面的这个斜杠/一定不能省略，这是一个相对路径的问题)
 
 - 使用 docker-compose 也是一种推荐的办法来启动容器.
 
 ```
  docker-compose up -d 
 ```
+
+- 集群模式运行 (运行这个命令之前要先初始化 docker swarm 模式)  可参考更详细的说明：[Docker Service](https://github.com/qijunbo/dockerstudy/tree/master/service)
+
+```
+docker stack deploy -c docker-compose.yml swagger_demo
+```
+
+
+
 
 踩过的坑
 ==
