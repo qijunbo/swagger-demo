@@ -1,30 +1,34 @@
 version: '3'
 
 services:
-   db:
-     image: mysql
-     volumes:
-       - db_data:/var/lib/mysql
-     restart: always
-     environment:
-       MYSQL_ROOT_PASSWORD: qijunbo
-       MYSQL_DATABASE: swaggerdemo
-       MYSQL_USER: swaggerdemo
-       MYSQL_PASSWORD: swaggerdemo
-
-   swagger_demo:
-     depends_on:
-       - db
-     image: qijunbo/swagger_demo
-     ports:
-       - "32794:80"
-     restart: always
-     environment:
-       ACTIVE_PROFILE: prod
-       APP_DB_HOST: db
-       APP_DB_PORT: 3306
-       APP_DB_USER: swaggerdemo
-       APP_DB_PASSWORD: swaggerdemo
-       APP_DATABASE: swaggerdemo
+  db:
+    image: mysql
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: qijunbo
+      MYSQL_DATABASE: swaggerdemo
+      MYSQL_USER: swaggerdemo
+      MYSQL_PASSWORD: swaggerdemo
+                
+  swagger_demo:
+    depends_on:
+      - db
+    image: qijunbo/swagger_demo
+    ports:
+      - "32794:80"
+    networks:
+      - webnet
+    restart: always
+    environment:
+      ACTIVE_PROFILE: prod
+      APP_DB_HOST: db
+      APP_DB_PORT: 3306
+      APP_DB_USER: swaggerdemo
+      APP_DB_PASSWORD: swaggerdemo
+      APP_DATABASE: swaggerdemo
 volumes:
-    db_data:
+  db_data:
+networks:
+  webnet:
