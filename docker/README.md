@@ -9,6 +9,16 @@ How to User this Docker image
  ./rebuild.sh
 ```
 
+- 参数的含义
+
+<table>
+<tr><td>ACTIVE_PROFILE=dev </td><td>有两个取值, dev 是开发环境, 采用h2内存数据库, 不需要额外配置数据源. <br/> prod 表示生产环境, 需要额外指定数据库 </td> </tr>
+<tr><td>APP_DB_HOST=db </td><td>数据库服务器的ip地址或者主机名</td> </tr>
+<tr><td>APP_DB_PORT=3306 </td><td>数据库端口, 如果你用的是外部数据库服务器. 否则请忽略. </td> </tr>
+<tr><td>APP_DB_USER=qijunbo </td><td>数据库用户名 </td> </tr>
+<tr><td>APP_DB_PASSWORD=qijunbo </td><td>数据库密码 </td> </tr>
+<tr><td>APP_DATABASE=swaggerdemo </td><td>数据库名称 </td> </tr>
+</table>
 
 - 使用h2内存数据库
 
@@ -32,13 +42,22 @@ docker container run --name swagger_demo  --env ACTIVE_PROFILE=dev -d -p 32794:8
 ```
 
 
-执行完毕后访问  http://localhost:32794 即可
+执行完毕后访问  http://localhost:32794/ 即可 (注意最后面的这个斜杠/一定不能省略，这是一个相对路径的问题)
 
 - 使用 docker-compose 也是一种推荐的办法来启动容器.
 
 ```
  docker-compose up -d 
 ```
+
+- 集群模式运行 (运行这个命令之前要先初始化 docker swarm 模式)  可参考更详细的说明：[Docker Service](https://github.com/qijunbo/dockerstudy/tree/master/service)
+
+```
+docker stack deploy -c docker-compose.yml swagger_demo
+```
+
+
+
 
 踩过的坑
 ==
