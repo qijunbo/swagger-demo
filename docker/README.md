@@ -9,6 +9,16 @@ How to User this Docker image
  ./rebuild.sh
 ```
 
+- 参数的含义
+
+<table>
+<tr><td>ACTIVE_PROFILE=dev </td><td>有两个取值, dev 是开发环境, 采用h2内存数据库, 不需要额外配置数据源. <br/> prod 表示生产环境, 需要额外指定数据库 </td> </tr>
+<tr><td>APP_DB_HOST=db </td><td>数据库服务器的ip地址或者主机名</td> </tr>
+<tr><td>APP_DB_PORT=3306 </td><td>数据库端口, 如果你用的是外部数据库服务器. 否则请忽略. </td> </tr>
+<tr><td>APP_DB_USER=qijunbo </td><td>数据库用户名 </td> </tr>
+<tr><td>APP_DB_PASSWORD=qijunbo </td><td>数据库密码 </td> </tr>
+<tr><td>APP_DATABASE=swaggerdemo </td><td>数据库名称 </td> </tr>
+</table>
 
 - 使用h2内存数据库
 

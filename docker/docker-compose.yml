@@ -12,10 +12,18 @@ services:
       MYSQL_USER: swaggerdemo
       MYSQL_PASSWORD: swaggerdemo
                 
-  swagger_demo:
+  web:
     depends_on:
       - db
-    image: qijunbo/swagger_demo
+    image: qijunbo/swagger_demo:latest
+    deploy:
+      replicas: 5
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 2048M
+      restart_policy:
+        condition: on-failure
     ports:
       - "32794:80"
     networks:
