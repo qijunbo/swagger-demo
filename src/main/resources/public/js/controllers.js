@@ -56,7 +56,12 @@ dreamApp.controller('costomerCtl', function($scope, $resource) {
 	$scope.remove = function(customer) {
 		var customerid = customer.id;
 		console.log(JSON.stringify(customerid));
-		alert("You are going to remove :" + customerid);
+	    var confirmation=confirm("Are you sure to remove " +  customerid);  
+	    if(confirmation==false)  
+	    {  
+	       return ;
+	    }  
+
 		CustomerService.remove({
 			id : customerid
 		}, {}, function success(response) {
