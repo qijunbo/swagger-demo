@@ -5,11 +5,12 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.jpa.repository.Customer;
 import com.example.jpa.repository.CustomerRepository;
@@ -17,9 +18,12 @@ import com.example.jpa.repository.CustomerRepository;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
-@Controller
+@RestController
 @RequestMapping("/api/customer")
 public class CustomerController {
+    
+    @Value("${security.jwt.HS256KEY}")
+    private String valueTest ;
 
 	@Autowired
 	private CustomerRepository repository;
@@ -55,5 +59,10 @@ public class CustomerController {
 		repository.delete(id);
 		return null;
 	}
+	
+    @RequestMapping(value = "/test", method = GET)
+    public String test() {
+        return valueTest;
+    }
 
 }

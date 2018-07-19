@@ -5,4 +5,7 @@ server:
 spring:
   profiles:
     active: dev  # prod  and dev;
+security:
+  jwt:
+    HS256KEY: HikLL*LL1^8U#INoxxx
      
