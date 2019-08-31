@@ -5,7 +5,6 @@ chmod 770 gradlew
 workfolder=/opt/apps
 mkdir -p ${workfolder}
 app=swaggerDemo
-version=1.0
 
 mkdir -p ${workfolder}/${app}
 sudo systemctl stop ${app}
