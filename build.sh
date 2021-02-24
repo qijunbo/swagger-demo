@@ -16,3 +16,4 @@ sudo systemctl daemon-reload
 #sudo chkconfig ${app} on
 sudo systemctl enable ${app}
 sudo systemctl start ${app}
+read  -n 1  -p "press any key to continue..." 
